@@ -66,10 +66,19 @@ namespace User.API.Controllers
             return Json(user);
         }
 
+        /// <summary>
+        /// 更新用户信息
+        /// </summary>
+        /// <param name="patch"></param>
+        /// <returns></returns>
         [HttpPatch]
         [Route("")]
         public async Task<IActionResult> Patch([FromBody]JsonPatchDocument<AppUser> patch)
         {
+            //视频【65】
+            //有数组的情况下，更新有点复杂，
+            //1先删除原先的在做新增操作
+            //2.匹配后，在做关联操作，（不要跟踪数据）
             var user = await _dbContext.AppUsers
                 .SingleOrDefaultAsync(x => x.Id == UserIdentity.UserId);
             if (user == null)
