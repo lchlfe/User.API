@@ -47,6 +47,7 @@ namespace IdentityServerSample2
                 new Client()
                 {
                     ClientId="pwdclient",
+                    //密码模式
                     AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
                     ClientSecrets = new List<Secret>()
                     {
