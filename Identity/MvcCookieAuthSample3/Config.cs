@@ -32,6 +32,7 @@ namespace MvcCookieAuthSample3
                 new Client()
                 {
                     ClientId="mvc",
+                    //隐式模式
                     AllowedGrantTypes = GrantTypes.Implicit,
                     ClientSecrets = new List<Secret>()
                     {
@@ -40,8 +41,8 @@ namespace MvcCookieAuthSample3
 
                     RequireConsent = false,
 
-                    RedirectUris = {"http://localhost:5301/signin-oidc"},
-                    PostLogoutRedirectUris = {"http://localhost:5301/signout-callback-oidc"},
+                    RedirectUris = {"http://localhost:5001/signin-oidc"},
+                    PostLogoutRedirectUris = {"http://localhost:5001/signout-callback-oidc"},
 
                     AllowedScopes =
                     {

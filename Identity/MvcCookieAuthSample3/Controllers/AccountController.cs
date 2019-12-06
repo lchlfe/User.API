@@ -84,6 +84,7 @@ namespace MvcCookieAuthSample3.Controllers
             return View();
         }
 
+        //登录
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel loginViewModel, string returnUrl = null)
         {
