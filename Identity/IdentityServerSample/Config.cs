@@ -10,6 +10,7 @@ namespace IdentityServerSample
 {
     public class Config
     {
+        //可以访问的对象
         public static IEnumerable<ApiResource> GetResources()
         {
             return new List<ApiResource>()
@@ -27,11 +28,13 @@ namespace IdentityServerSample
                 new Client()
                 {
                     ClientId="client",
+                    //使用那种模式
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
                     ClientSecrets = new List<Secret>()
                     {
                         new Secret("secret".Sha256())
                     },
+                    //可以访问那些api
                     AllowedScopes = {"api"}
                 },
                 new Client()

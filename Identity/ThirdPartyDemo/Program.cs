@@ -8,6 +8,7 @@ namespace ThirdPartyDemo
     {
         static void Main(string[] args)
         {
+            //拿到tocke
             var diso = DiscoveryClient.GetAsync("http://localhost:5000").Result;
             if (diso.IsError)
             {
@@ -25,7 +26,7 @@ namespace ThirdPartyDemo
             {
                 Console.WriteLine(tokenResponse.Json);
             }
-
+            //访问接口
             HttpClient httpClient = new HttpClient();
             httpClient.SetBearerToken(tokenResponse.AccessToken);
             var response = httpClient.GetAsync("http://localhost:5001/api/values").Result;
