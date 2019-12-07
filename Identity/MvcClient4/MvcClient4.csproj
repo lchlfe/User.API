@@ -12,4 +12,22 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.4" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="AuthSample\.vs\AuthSample\DesignTimeBuild\.dtbcache" />
+    <None Include="AuthSample\.vs\AuthSample\v16\Server\sqlite3\db.lock" />
+    <None Include="AuthSample\.vs\AuthSample\v16\Server\sqlite3\storage.ide" />
+    <None Include="AuthSample\.vs\config\applicationhost.config" />
+    <None Include="AuthSample\AuthSample.sln" />
+    <None Include="AuthSample\AuthSample.sln.DotSettings.user" />
+    <None Include="AuthSample\MvcClient\MvcClient.csproj" />
+    <None Include="AuthSample\MvcClient\MvcClient.csproj.user" />
+    <None Include="AuthSample\MvcCookieAuthSample\MvcCookieAuthSample.csproj" />
+    <None Include="AuthSample\MvcCookieAuthSample\MvcCookieAuthSample.csproj.user" />
+    <None Include="AuthSample\WebApplication1\WebApplication1.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="AuthSample\.vs\AuthSample\v15\Server\sqlite3\" />
+  </ItemGroup>
+
 </Project>
