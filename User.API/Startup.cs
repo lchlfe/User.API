@@ -39,9 +39,9 @@ namespace User.API
             services.AddDbContext<UserDbContext>(builder =>
             {
 
-                builder.UseMySQL(Configuration.GetConnectionString("UserMysqlLocal"));
+                //builder.UseMySQL(Configuration.GetConnectionString("UserMysqlLocal"));
 
-                //builder.UseMySQL(Configuration.GetConnectionString("UserMysql"));
+                builder.UseMySQL(Configuration.GetConnectionString("UserMysql"));
 
             });
 
@@ -168,8 +168,8 @@ namespace User.API
                     Name = serviceOptions.Value.ServiceName,
                     Port = address.Port
                 };
-
-                consul.Agent.ServiceRegister(registration).GetAwaiter().GetResult();
+                //先注释
+                //consul.Agent.ServiceRegister(registration).GetAwaiter().GetResult();
             }
         }
     }
