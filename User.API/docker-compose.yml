@@ -10,7 +10,7 @@ services:
       - '3306:3306'
     environment:
       MYSQL_ROOT_PASSWORD: 123456
-      MYSQL_USER: lchlfe
+      MYSQL_USER: jesse
       MYSQL_PASSWORD: 123456
     volumes:
       - /d/docker/beta/mysql-init:/docker-entrypoint-initdb.d
