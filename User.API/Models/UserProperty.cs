@@ -5,12 +5,27 @@ using System.Threading.Tasks;
 
 namespace User.API.Models
 {
+    /// <summary>
+    /// 用户属性（）
+    /// </summary>
     public class AppUserProperty
     {
         private int? _requestedHashCode;
+        /// <summary>
+        /// 用户Id（会自动建立映射）
+        /// </summary>
         public int AppUserId { get; set; }
+        /// <summary>
+        /// Key
+        /// </summary>
         public string Key { get; set; }
+        /// <summary>
+        /// Text
+        /// </summary>
         public string Text { get; set; }
+        /// <summary>
+        ///Value
+        /// </summary>
         public string Value { get; set; }
 
         public override bool Equals(object obj)

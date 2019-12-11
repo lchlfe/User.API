@@ -49,7 +49,10 @@ namespace User.API.Controllers
                 await _capPublisher.PublishAsync<AppUserInfoChangedEvent>("userapi.userinfochanged", @event);
             }
         }
-
+        /// <summary>
+        /// 获取用户
+        /// </summary>
+        /// <returns></returns>
         // GET api/values
         [HttpGet]
         [Route("")]

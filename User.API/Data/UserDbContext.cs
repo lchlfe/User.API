@@ -17,12 +17,13 @@ namespace User.API.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //设置主键
             modelBuilder.Entity<AppUser>()
                 .HasKey(x => x.Id);
-
+            //双主键
             modelBuilder.Entity<AppUserProperty>()
                 .HasKey(x => new { x.AppUserId, x.Key, x.Value });
-
+            //指定长度
             modelBuilder.Entity<AppUserProperty>().Property(x => x.Key).HasMaxLength(100);
             modelBuilder.Entity<AppUserProperty>().Property(x => x.Value).HasMaxLength(100);
 
@@ -31,7 +32,7 @@ namespace User.API.Data
 
             modelBuilder.Entity<AppUserTag>().Property(x => x.Tag).HasMaxLength(100);
             modelBuilder.Entity<AppUserTag>().Property(x => x.CreatedTime).ValueGeneratedOnAdd();
-
+            //设置主键
             modelBuilder.Entity<BPFile>()
                 .HasKey(x => x.Id);
 

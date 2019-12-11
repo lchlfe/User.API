@@ -52,12 +52,23 @@ namespace User.API.Models
         /// 电话
         /// </summary>
         public string Tel { get; set; }
-
+        /// <summary>
+        /// 省份
+        /// </summary>
         public int ProvinceId { get; set; }
         public string Province { get; set; }
         public int CityId { get; set; }
+        /// <summary>
+        /// 城市
+        /// </summary>
         public string City { get; set; }
+        /// <summary>
+        /// 名片地址
+        /// </summary>
         public string NameCard { get; set; }
+        /// <summary>
+        /// 用户属性列表（经理，投资人）
+        /// </summary>
         public List<AppUserProperty> Properties { get; set; }
     }
 }
