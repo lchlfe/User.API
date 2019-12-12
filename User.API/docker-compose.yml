@@ -13,7 +13,7 @@ services:
       MYSQL_USER: jesse
       MYSQL_PASSWORD: 123456
     volumes:
-      - /d/docker/beta/mysql-init:/docker-entrypoint-initdb.d
+      - /c/docker/beta/mysql-init:/docker-entrypoint-initdb.d
   web:
     build: .
     container_name: 'aspnetcore'

@@ -50,7 +50,7 @@ namespace User.API.Controllers
             }
         }
         /// <summary>
-        /// 获取用户
+        /// 获取个人资料
         /// </summary>
         /// <returns></returns>
         // GET api/values
@@ -64,6 +64,7 @@ namespace User.API.Controllers
                 .SingleOrDefaultAsync(x => x.Id == UserIdentity.UserId);
             if (user == null)
             {
+
                 throw new UserOperationException($"错误的用户上下文Id {UserIdentity.UserId}");
             }
             return Json(user);

@@ -17,6 +17,7 @@ test:
    - dotnet build
    - dotnet test
 
+
 package:
   stage: package
   script: 
