@@ -1,0 +1,6 @@
+﻿version: '3'
+  web:
+    build: .
+    container_name: 'aspnetcore'
+    ports:
+      - '8003:80'
