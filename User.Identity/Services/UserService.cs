@@ -33,6 +33,7 @@ namespace User.Identity.Services
 
         public async Task<UserInfo> CheckOrCreateAsync(string phone)
         {
+            //构造请求参数
             var form = new Dictionary<string, string>()
             {
                 {"phone" , phone }

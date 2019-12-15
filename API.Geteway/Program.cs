@@ -21,6 +21,7 @@ namespace API.Geteway
             WebHost.CreateDefaultBuilder(args)
                 .ConfigureAppConfiguration((x, y) =>
                 {
+                    //配置文件
                     y.SetBasePath(x.HostingEnvironment.ContentRootPath)
                         .AddJsonFile("Ocelot.json");
                 })

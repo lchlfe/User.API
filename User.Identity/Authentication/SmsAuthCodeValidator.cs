@@ -9,6 +9,9 @@ using User.Identity.Services;
 
 namespace User.Identity.Authentication
 {
+    /// <summary>
+    /// 自定义验证
+    /// </summary>
     public class SmsAuthCodeValidator : IExtensionGrantValidator
     {
         private readonly IAuthCodeService _authCodeService;

@@ -119,6 +119,11 @@ namespace User.API.Controllers
             return Json(user);
         }
 
+        /// <summary>
+        /// 验证用户是否存在，如果不存在则创建，否则返回
+        /// </summary>
+        /// <param name="phone"></param>
+        /// <returns></returns>
         [HttpPost]
         [Route("check-or-create")]
         public async Task<IActionResult> CheckOrCreate([FromForm]string phone)

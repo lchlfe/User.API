@@ -34,7 +34,7 @@ namespace User.Identity
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<IProfileService, ProfileService>();
-
+            //IdentityServer4
             services.AddIdentityServer()
                 .AddExtensionGrantValidator<SmsAuthCodeValidator>()
                 .AddDeveloperSigningCredential()
