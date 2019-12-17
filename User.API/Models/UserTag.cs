@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace User.API.Models
 {
     /// <summary>
-    /// 标签
+    /// 用户标签
     /// </summary>
     public class AppUserTag
     {

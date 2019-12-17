@@ -140,7 +140,10 @@ namespace User.API.Controllers
             await _dbContext.SaveChangesAsync();
             return Ok(user);
         }
-
+        /// <summary>
+        /// 获取用户标签
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         [Route("tags")]
         public async Task<IActionResult> GetTags()
@@ -148,7 +151,11 @@ namespace User.API.Controllers
             var result = await _dbContext.AppUserTags.Where(x => x.AppUserId == UserIdentity.UserId).ToListAsync();
             return Ok(result);
         }
-
+        /// <summary>
+        /// 通过手机号查找用户资料
+        /// </summary>
+        /// <param name="phone"></param>
+        /// <returns></returns>
         [HttpPost]
         [Route("search")]
         public async Task<IActionResult> Search([FromForm]string phone)
@@ -156,7 +163,11 @@ namespace User.API.Controllers
             var appUser = await _dbContext.AppUsers.Include(x => x.Properties).SingleOrDefaultAsync(x => x.Phone == phone);
             return Json(appUser);
         }
-
+        /// <summary>
+        /// 更新用户标签
+        /// </summary>
+        /// <param name="tags"></param>
+        /// <returns></returns>
         [HttpPut]
         [Route("update-tags")]
         public async Task<IActionResult> UpdateTags([FromBody]string[] tags)
