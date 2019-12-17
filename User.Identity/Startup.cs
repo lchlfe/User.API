@@ -55,18 +55,18 @@ namespace User.Identity
             });
 
             //services.AddSingleton(new HttpClient());
-
+            //注册全局单例ResilienceClientFactory
             services.AddSingleton<ResilienceClientFactory>(sp =>
             {
                 var loggger = sp.GetRequiredService<ILogger<ResilienceClientFactory>>();
                 var logggerHttpClinet = sp.GetRequiredService<ILogger<ResilientHttpClient>>();
                 var httpContextAccessor = sp.GetRequiredService<IHttpContextAccessor>();
-                var retryCount = 5;
+                var retryCount = 5;//重新发起多少次请求
                 var expCountAllowedBeforeBreak = 5;
                 var factory = new ResilienceClientFactory(loggger, httpContextAccessor, retryCount, expCountAllowedBeforeBreak, logggerHttpClinet);
                 return factory;
             });
-
+            //注册全局单例IHttpClient
             services.AddSingleton<IHttpClient>(sp =>
             {
                 var resilienceClientFactory = sp.GetRequiredService<ResilienceClientFactory>();

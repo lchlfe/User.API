@@ -38,7 +38,7 @@ namespace User.Identity.Infrastructure
                         _retryCount,
                         // exponential backofff
                         retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)),
-                        // on retry
+                        // on retry（重置）
                         (exception, timeSpan, retryCount, context) =>
                         {
                             var msg = $"Retry {retryCount} implemented with Polly's RetryPolicy " +
