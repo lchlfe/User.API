@@ -41,12 +41,12 @@ namespace TestConsulApi1
                 {
                     x.Address = new Uri("http://localhost:8500");
                 });
-
+                //服务出错之后1一分钟，
                 var check = new AgentServiceCheck()
                 {
-                    DeregisterCriticalServiceAfter = TimeSpan.FromMinutes(1),
+                    DeregisterCriticalServiceAfter = TimeSpan.FromMinutes(1),                  
+                    Interval = TimeSpan.FromSeconds(10),
                     HTTP = "http://localhost:5000/api/heathcheck",
-                    Interval = TimeSpan.FromSeconds(10)
                 };
 
                 var registration = new AgentServiceRegistration()
