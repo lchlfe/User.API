@@ -13,6 +13,7 @@ namespace TestDnsClient
             try
             {
                 IDnsQuery dnsQuery = new LookupClient(IPAddress.Parse("127.0.0.1"), 8600);
+                //api代表注册的consul名称
                 var result = dnsQuery.ResolveService("service.consul", "api");
 
                 var first = result.First();

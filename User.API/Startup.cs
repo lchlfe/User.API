@@ -35,7 +35,7 @@ namespace User.API
         public void ConfigureServices(IServiceCollection services)
         {
             // test git commit on new computer
-
+            //db
             services.AddDbContext<UserDbContext>(builder =>
             {
 
@@ -44,7 +44,7 @@ namespace User.API
                 builder.UseMySQL(Configuration.GetConnectionString("UserMysql"));
 
             });
-
+            //cap
             services.AddCap(options =>
             {
                 options.UseEntityFramework<UserDbContext>();
@@ -67,8 +67,8 @@ namespace User.API
             });
 
             services.AddOptions();
+            //consul
             services.Configure<ServiceDisvoveryOptions>(Configuration.GetSection("ServiceDiscovery"));
-
             services.AddSingleton<IConsulClient>(p => new ConsulClient(cfg =>
             {
                 var serviceConfiguration = p.GetRequiredService<IOptions<ServiceDisvoveryOptions>>().Value;
@@ -103,12 +103,12 @@ namespace User.API
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            //启动时注册服务
             lifetime.ApplicationStarted.Register(() =>
             {
                 RegisterService(app, options, consulClient);
             });
-
+            //停止的时候移除服务
             lifetime.ApplicationStopped.Register(() =>
             {
                 DeRegisterService(app, options, consulClient);
@@ -123,9 +123,11 @@ namespace User.API
             UserContextSeed.SeedAsync(app, loggerFactory).Wait();
         }
 
+        #region consul服务
+        //停止的时候移除服务
         private void DeRegisterService(IApplicationBuilder app,
-            IOptions<ServiceDisvoveryOptions> serviceOptions,
-            IConsulClient consul)
+          IOptions<ServiceDisvoveryOptions> serviceOptions,
+          IConsulClient consul)
         {
             var features = app.Properties["server.Features"] as FeatureCollection;
             var addresses = features.Get<IServerAddressesFeature>()
@@ -169,8 +171,11 @@ namespace User.API
                     Port = address.Port
                 };
                 //先注释
-                //consul.Agent.ServiceRegister(registration).GetAwaiter().GetResult();
+                consul.Agent.ServiceRegister(registration).GetAwaiter().GetResult();
             }
-        }
+        } 
+        #endregion
+
+
     }
 }

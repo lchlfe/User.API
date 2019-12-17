@@ -10,6 +10,10 @@ namespace User.API.Controllers
     [Route("HealthCheck")]
     public class HealthCheckController : Controller
     {
+        /// <summary>
+        /// 健康检查
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         [HttpHead]
         public IActionResult Get()

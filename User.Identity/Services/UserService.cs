@@ -28,7 +28,7 @@ namespace User.Identity.Services
             var addressList = result.First().AddressList;
             var address = addressList.Any() ? addressList.First().ToString() : result.First().HostName;
             var port = result.First().Port;
-            _userServiceUrl = $"http://{address}:{port}";
+            _userServiceUrl = $"http://{address}:{port}";//解耦访问地址，避免写死地址
         }
 
         public async Task<UserInfo> CheckOrCreateAsync(string phone)
