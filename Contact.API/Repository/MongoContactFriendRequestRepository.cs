@@ -9,6 +9,9 @@ using MongoDB.Driver;
 
 namespace Contact.API.Repository
 {
+    /// <summary>
+    /// 用户mongodb
+    /// </summary>
     public class MongoContactFriendRequestRepository : IContactFriendRequestRepository
     {
         private readonly MongoContactDbContext _dbContext;

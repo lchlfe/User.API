@@ -9,6 +9,9 @@ using MongoDB.Driver;
 
 namespace Contact.API.Data
 {
+    /// <summary>
+    /// mongo数据上下文
+    /// </summary>
     public class MongoContactDbContext
     {
         private readonly IMongoClient _mongoClient;

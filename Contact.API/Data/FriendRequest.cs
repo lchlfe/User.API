@@ -26,11 +26,25 @@ namespace Contact.API.Data
         /// 当前用户ID
         /// </summary>
         public int UserId { get; set; }
-
+        /// <summary>
+        /// 用户名称
+        /// </summary>
         public string Name { get; set; }
+        /// <summary>
+        /// 公司
+        /// </summary>
         public string Company { get; set; }
+        /// <summary>
+        /// 职位
+        /// </summary>
         public string Title { get; set; }
+        /// <summary>
+        /// 手机号
+        /// </summary>
         public string Phone { get; set; }
+        /// <summary>
+        /// 头像
+        /// </summary>
         public string Avatar { get; set; }
 
         /// <summary>
@@ -41,8 +55,13 @@ namespace Contact.API.Data
         [JsonConverter(typeof(StringEnumConverter))]
         [BsonRepresentation(BsonType.String)]
         public ApplyStatus ApplyStatus { get; set; }
-
+        /// <summary>
+        /// 处理时间
+        /// </summary>
         public DateTime ApplyDateTime { get; set; }
+        /// <summary>
+        /// 更新时间
+        /// </summary>
         public DateTime? UpdateTime { get; set; }
     }
 }
