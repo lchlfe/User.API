@@ -10,10 +10,22 @@ using Project.Domain.SeedWork;
 
 namespace Project.Domain.AggregatesModel
 {
+    /// <summary>
+    /// 项目
+    /// </summary>
     public class Project : Entity, IAggregateRoot
     {
+        /// <summary>
+        /// 用户Id
+        /// </summary>
         public int UserId { get; set; }
+        /// <summary>
+        /// 头像
+        /// </summary>
         public string Avator { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
         public string Company { get; set; }
         public string OriginBPFile { get; set; }
         public string ForamteBPFile { get; set; }
@@ -89,7 +101,11 @@ namespace Project.Domain.AggregatesModel
 
         public DateTime UpdateTime { get; set; }
         public DateTime CreateTime { get; private set; }
-
+        /// <summary>
+        /// 项目复制
+        /// </summary>
+        /// <param name="source"></param>
+        /// <returns></returns>
         private Project ProjectClone(Project source)
         {
             if (source == null)

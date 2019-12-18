@@ -12,7 +12,9 @@ namespace Project.Domain.AggregatesModel
         public string Avator { get; set; }
         public int UserId { get; set; }
         public DateTime CreateTime { get; set; }
-
+        /// <summary>
+        /// 关闭者
+        /// </summary>
         public bool IsColsed { get; set; }
         /// <summary>
         /// 1、财务顾问 2、投资机构
