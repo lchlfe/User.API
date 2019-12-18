@@ -79,7 +79,7 @@ namespace User.API
                     cfg.Address = new Uri(serviceConfiguration.Consul.HttpEndpoint);
                 }
             }));
-
+            //jwt认证
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

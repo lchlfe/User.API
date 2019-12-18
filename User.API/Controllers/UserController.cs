@@ -28,9 +28,10 @@ namespace User.API.Controllers
             _logger = logger;
             _capPublisher = capPublisher;
         }
-
+        //发布消息
         private async Task RasieUserInfoChangedEventAsyncTask(AppUser user)
         {
+            //判断值是否更改
             if (_dbContext.Entry(user).Property(x => x.Name).IsModified ||
                 _dbContext.Entry(user).Property(x => x.Company).IsModified ||
                 _dbContext.Entry(user).Property(x => x.Title).IsModified ||
@@ -107,6 +108,7 @@ namespace User.API.Controllers
 
             using (var trans = await _dbContext.Database.BeginTransactionAsync())
             {
+                //发布用户变更的消息
                 await RasieUserInfoChangedEventAsyncTask(user);
 
                 await _dbContext.AddRangeAsync(addRang);
@@ -188,7 +190,11 @@ namespace User.API.Controllers
             await _dbContext.SaveChangesAsync();
             return Ok();
         }
-
+        /// <summary>
+        /// 获取好友用户信息和标签
+        /// </summary>
+        /// <param name="userid"></param>
+        /// <returns></returns>
         [HttpGet]
         [Route("baseinfo/{userid}")]
         public async Task<IActionResult> BaseInfo(int userid)

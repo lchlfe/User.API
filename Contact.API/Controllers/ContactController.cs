@@ -169,6 +169,11 @@ namespace Contact.API.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// 消费消息
+        /// </summary>
+        /// <param name="event"></param>
+        /// <returns></returns>
         [NonAction]
         [CapSubscribe("userapi.userinfochanged")]
         public async Task ConsumerAppUserInfoChangedEvent(AppUserInfoChangedEvent @event)

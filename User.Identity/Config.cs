@@ -18,6 +18,10 @@ namespace User.Identity
             };
         }
 
+        /// <summary>
+        /// 获取资源，用户比较
+        /// </summary>
+        /// <returns></returns>
         public static IEnumerable<ApiResource> GetApiResources()
         {
             return new List<ApiResource>()
@@ -48,6 +52,7 @@ namespace User.Identity
                     RequireClientSecret = false,
                     AllowedGrantTypes = new List<string>(){"sms_auth_code"} ,
                     AlwaysIncludeUserClaimsInIdToken = true,
+                    //用来和子项目进行验证
                     AllowedScopes =
                     {
                         IdentityServerConstants.StandardScopes.OpenId,

@@ -115,7 +115,7 @@ namespace Contact.API
             });
 
             services.AddMvc();
-
+            //jwt认证授权
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
             services.AddAuthentication(options =>
