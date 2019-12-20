@@ -1,14 +1,14 @@
-﻿FROM microsoft/dotnet:3.1-sdk as build-dev
-WORKDIR	/code
-COPY *.csproj /code
-RUN dotnet restore
-COPY . /code
-RUN dotnet publish -c Release -o out
+﻿# 父镜像
+FROM microsoft/aspnetcore:latest
 
-FROM microsoft/dotnet:3.1-runtime
+# 设置工作目录
 WORKDIR /app
-COPY --from=build-dev /code/out /app
 
-ENV ASPNETCORE_URLS http://+5001
-EXPOSE 5001
-ENTRYPOINT ["dotnet","webhello.API.dll"]
+# 复制发布文件到/app下
+COPY . /app
+
+# 设置端口
+EXPOSE 8810
+
+# 使用dotnet Manulife.DNC.MSAD.NB.AgentService.dll来运行ASP.NET Core项目，注意大小写
+ENTRYPOINT ["dotnet", "webhello.dll", "--server.urls", "http://*:8810"]

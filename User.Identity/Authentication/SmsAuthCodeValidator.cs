@@ -24,7 +24,11 @@ namespace User.Identity.Authentication
         }
 
         public string GrantType => "sms_auth_code";
-
+        /// <summary>
+        /// 验证用户获取tokcer
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public async Task ValidateAsync(ExtensionGrantValidationContext context)
         {
             var phone = context.Request.Raw["phone"];

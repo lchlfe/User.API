@@ -33,7 +33,10 @@ namespace User.Identity
                 new ApiResource("gateway_recommandapi","recommand service")
             };
         }
-
+        /// <summary>
+        /// 获取客户端
+        /// </summary>
+        /// <returns></returns>
         public static IEnumerable<Client> GetClients()
         {
             return new List<Client>()

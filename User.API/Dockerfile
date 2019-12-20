@@ -9,6 +9,6 @@ FROM microsoft/aspnetcore
 WORKDIR /app
 COPY --from=build-dev /code/out /app
 
-ENV ASPNETCORE_URLS http://+80
-EXPOSE 80
+ENV ASPNETCORE_URLS http://+5000
+EXPOSE 5000
 ENTRYPOINT ["dotnet","User.API.dll"]

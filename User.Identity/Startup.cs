@@ -33,19 +33,21 @@ namespace User.Identity
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<IProfileService, ProfileService>();
+
             //IdentityServer4
+            services.AddTransient<IProfileService, ProfileService>();
             services.AddIdentityServer()
                 .AddExtensionGrantValidator<SmsAuthCodeValidator>()
                 .AddDeveloperSigningCredential()
                 .AddInMemoryClients(Config.GetClients())
                 .AddInMemoryIdentityResources(Config.GetIdentityResources())
                 .AddInMemoryApiResources(Config.GetApiResources())
-                .AddProfileService<ProfileService>();
+                .AddProfileService<ProfileService>();//获取资源文件
 
             services.AddOptions();
-            services.Configure<ServiceDisvoveryOptions>(Configuration.GetSection("ServiceDiscovery"));
+
             //consul服务
+            services.Configure<ServiceDisvoveryOptions>(Configuration.GetSection("ServiceDiscovery"));
             services.AddSingleton<IDnsQuery>(p =>
             {
                 var serviceConfiguration = p.GetRequiredService<IOptions<ServiceDisvoveryOptions>>().Value;
