@@ -24,8 +24,8 @@ namespace API.Geteway
             services.AddAuthentication()
                 .AddIdentityServerAuthentication(authenticationProviderKey, x =>
                 {
-                    x.Authority = "http://localhost:6000"; // 授权地址
-                    x.ApiName = "gateway_api";
+                    x.Authority = "http://localhost:6000"; // 授权地址Identity
+                    x.ApiName = "gateway_api";//网关的名称，需要和Identity里的GetClients值要对应
                     x.SupportedTokens = SupportedTokens.Both;
                     x.ApiSecret = "secret";
                     x.RequireHttpsMetadata = false;

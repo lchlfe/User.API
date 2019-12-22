@@ -1,4 +1,5 @@
 ﻿{
+  /*每个路由都是一个节点*/
   "ReRoutes": [
     {
       "DownstreamPathTemplate": "/api/users",
@@ -9,6 +10,7 @@
           "Port": 5000
         }
       ],
+      /*上游服务指的是访问网关的的url地址*/
       "UpstreamPathTemplate": "/users",
       "UpstreamHttpMethod": [ "Get", "Patch" ],
       "AuthenticationOptions": {

@@ -7,6 +7,7 @@
       /*请求的地址*/
       "UpstreamPathTemplate": "/values",
       "UpstreamHttpMethod": [ "Get" ],
+      /*服务名称*/
       "ServiceName": "api",
       "LoadBalancer": "LeastConnection",
       "UseServiceDiscovery": true

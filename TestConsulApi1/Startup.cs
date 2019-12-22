@@ -37,18 +37,20 @@ namespace TestConsulApi1
 
             lifetime.ApplicationStarted.Register(() =>
             {
+                //consul的访问地址
                 var consulClient = new ConsulClient(x =>
                 {
                     x.Address = new Uri("http://localhost:8500");
                 });
-                //服务出错之后1一分钟，
+                //健康检查，服务出错之后1一分钟，
                 var check = new AgentServiceCheck()
                 {
                     DeregisterCriticalServiceAfter = TimeSpan.FromMinutes(1),                  
                     Interval = TimeSpan.FromSeconds(10),
+                    //检查的地址
                     HTTP = "http://localhost:5000/api/heathcheck",
                 };
-
+                //注册
                 var registration = new AgentServiceRegistration()
                 {
                     ID = "api1",
